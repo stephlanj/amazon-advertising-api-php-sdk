@@ -12,13 +12,7 @@
         "sdk"
     ],
     "homepage": "https://advertising.amazon.com/",
-    "license": "Apache OSL-2",
-    "authors": [
-        {
-            "name": "SSPA AIR Dev",
-            "email": "nobody@amazon.com"
-        }
-    ],
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "AmazonAdvertisingApi\\": "AmazonAdvertisingApi/"
