@@ -1,6 +1,7 @@
 {
     "name": "stephlanj/amazon-advertising-api-php-sdk",
     "type": "library",
+    "minimum-stability": "dev",
     "description": "Amazon Advertising API Client Library",
     "keywords": [
         "amazon",
