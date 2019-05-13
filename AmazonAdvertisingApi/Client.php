@@ -114,6 +114,38 @@ class Client
         return $this->_operation("profiles", $data, "PUT");
     }
 
+    public function getPortfolio($portfolioId)
+    {
+        return $this->_operation("portfolios/{$portfolioId}");
+    }
+
+    public function getPortfolioEx ($portfolioId)
+    {
+        return $this->_operation("portfolios/extended/{$portfolioId}");
+    }
+
+    public function createPortfolios ($data)
+    {
+        return $this->_operation("portfolios", $data, "POST");
+    }
+
+    public function updatePortfolios($data)
+    {
+        return $this->_operation("portfolios", $data, "PUT");
+    }
+
+
+    public function listPortfolios($data = null)
+    {
+        return $this->_operation("portfolios", $data);
+    }
+
+    public function listPortfoliosEx($data = null)
+    {
+        return $this->_operation("portfolios/extended", $data);
+    }
+    
+    
     public function getCampaign($campaignId)
     {
         return $this->_operation("sp/campaigns/{$campaignId}");
