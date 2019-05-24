@@ -114,38 +114,6 @@ class Client
         return $this->_operation("profiles", $data, "PUT");
     }
 
-    public function getPortfolio($portfolioId)
-    {
-        return $this->_operation("portfolios/{$portfolioId}");
-    }
-
-    public function getPortfolioEx ($portfolioId)
-    {
-        return $this->_operation("portfolios/extended/{$portfolioId}");
-    }
-
-    public function createPortfolios ($data)
-    {
-        return $this->_operation("portfolios", $data, "POST");
-    }
-
-    public function updatePortfolios($data)
-    {
-        return $this->_operation("portfolios", $data, "PUT");
-    }
-
-
-    public function listPortfolios($data = null)
-    {
-        return $this->_operation("portfolios", $data);
-    }
-
-    public function listPortfoliosEx($data = null)
-    {
-        return $this->_operation("portfolios/extended", $data);
-    }
-    
-    
     public function getCampaign($campaignId)
     {
         return $this->_operation("sp/campaigns/{$campaignId}");
@@ -202,6 +170,38 @@ class Client
     }
 
 
+    public function getPortfolio($portfolioId)
+    {
+        return $this->_operation("portfolios/{$portfolioId}");
+    }
+
+    public function getPortfolioEx ($portfolioId)
+    {
+        return $this->_operation("portfolios/extended/{$portfolioId}");
+    }
+
+    public function createPortfolios ($data)
+    {
+        return $this->_operation("portfolios", $data, "POST");
+    }
+
+    public function updatePortfolios($data)
+    {
+        return $this->_operation("portfolios", $data, "PUT");
+    }
+
+
+    public function listPortfolios($data = null)
+    {
+        return $this->_operation("portfolios", $data);
+    }
+
+    public function listPortfoliosEx($data = null)
+    {
+        return $this->_operation("portfolios/extended", $data);
+    }
+    
+    
     public function getAdGroup($adGroupId)
     {
         return $this->_operation("adGroups/{$adGroupId}");
@@ -556,6 +556,7 @@ class Client
             case "post":
             case "delete":
                 if (!empty($params)) {
+                    
                     $data = json_encode($params);
                     $request->setOption(CURLOPT_POST, true);
                     $request->setOption(CURLOPT_POSTFIELDS, $data);
@@ -578,7 +579,7 @@ class Client
         $this->requestId = $request->requestId;
         $response_info = $request->getInfo();
         $request->close();
-
+        
         if ($response_info["http_code"] == 307) {
             /* application/octet-stream */
             return $this->_download($response_info["redirect_url"], true);
